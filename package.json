@@ -1,0 +1,18 @@
+{
+  "name": "employee-app",
+  "version": "1.0.0",
+  "description": "employee app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "employee-app"
+  },
+  "author": "emily knight",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
