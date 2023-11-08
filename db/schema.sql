@@ -16,8 +16,8 @@ CREATE TABLE roles (
   salary INT NOT NULL
 );
 
-CREATE TABLE employee (
-  employee_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE employees (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
   job_title VARCHAR(100) NOT NULL,
@@ -25,12 +25,3 @@ CREATE TABLE employee (
   salary INT NOT NULL,
   manager VARCHAR(100) NOT NULL
 );
-
-INSERT INTO departments (department_name)
-VALUES ("Front of House"),
-       ("Back of House");
-       
-INSERT INTO roles (title, department, salary)
-VALUES ("Cashier", "Front of House", 30000),
-       ("Barista", "Front of House", 30000),
-       ("Cook", "Back of House", 30000);
