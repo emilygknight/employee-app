@@ -13,8 +13,8 @@
   "author": "emily knight",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "inquirer": "^8.2.4",
-    "mysql2": "^2.2.5"
+    "mysql2": "^2.3.3"
   }
 }
