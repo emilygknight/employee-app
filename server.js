@@ -19,9 +19,9 @@ const db = mysql.createConnection(
 );
 
 app.post('/api/new-department', ({ body }, res) => {
-    const sql = `INSERT INTO departments (department_name)
+    const sql = `INSERT INTO departments (name)
       VALUES (?)`;
-    const params = [body.department_name];
+    const params = [body.name];
     
     db.query(sql, params, (err, result) => {
       if (err) {
@@ -36,7 +36,7 @@ app.post('/api/new-department', ({ body }, res) => {
   });
 
 app.get('/api/departments', (req, res) => {
-    const sql = `SELECT department_name, department_name AS title FROM departments`;
+    const sql = `SELECT name, department_name AS title FROM departments`;
     
     db.query(sql, (err, rows) => {
       if (err) {
@@ -52,8 +52,8 @@ app.get('/api/departments', (req, res) => {
   
 
 //   Updating employee role
-  app.put('/api/employees/:id', (req, res) => {
-    const sql = `UPDATE employees SET job_title = ? WHERE id = ?`;
+  app.put('/api/employee/:id', (req, res) => {
+    const sql = `UPDATE employee SET job_title = ? WHERE id = ?`;
     const params = [req.body.employees, req.params.id];
   
     db.query(sql, params, (err, result) => {
