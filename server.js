@@ -100,9 +100,13 @@ const choices = [
     } else if (answers.choices === 'Add A Department') {
 
       addDepartment(menu());
+
+    } else if (answers.choices === 'Add An Employee') {
+     
+      addEmployee(); 
     }
    }
-  )}
+  )};
 
   function allDepartments () {
     const sql = `SELECT name AS title FROM department`;  
@@ -134,5 +138,47 @@ function addDepartment () {
     })
   })
   };
+
+
+  function addEmployee() {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "first",
+          message: "What is the first name of your new employee?",
+        },
+        {
+          type: "input",
+          name: "last",
+          message: "What is the last name of your new employee?",
+        },
+        {
+          type: "number",
+          name: "role",
+          message: "What is the role ID of your new employee?",
+        },
+        {
+          type: "number",
+          name: "department",
+          message: "What is the department ID of your new employee?",
+        },
+        {
+          type: "number",
+          name: "manager",
+          message: "What is the manager ID of your new employee?",
+        },
+      ])
+      .then(function (answers) {
+        const sql = `INSERT INTO employee (first_name, last_name, role_id, department_id, manager_id) VALUES ('${answers.first}', '${answers.last}', '${answers.role}', '${answers.department}', '${answers.manager}')`;
+        db.query(sql, (err, rows) => {
+          if (err) {
+            throw err;
+          }
+          console.log("Your employee has been added");
+          menu();
+        });
+      });
+  }
 
   menu();
