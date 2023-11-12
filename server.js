@@ -80,7 +80,7 @@ const choices = [
       choices: 
       ["View All Departments",
        "View All Roles",
-       "View All Employeees",
+       "View All Employees",
        "Add A Department",
        "Add A Role",
        "Add An Employee",
@@ -99,6 +99,10 @@ const choices = [
 
       allRoles();
 
+    } else if (answers.choices === 'View All Employees') {
+
+      allEmployees();
+
     } else if (answers.choices === 'Add A Department') {
 
       addDepartment(menu());
@@ -111,7 +115,7 @@ const choices = [
   )};
 
   function allDepartments () {
-    const sql = `SELECT name AS title FROM department`;  
+    const sql = `SELECT * FROM department`;  
     db.query(sql, (err, rows) => {
       if (err) {
         throw err;
@@ -124,6 +128,18 @@ const choices = [
 
   function allRoles () {
     const sql = `SELECT * FROM role`;  
+    db.query(sql, (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      console.table(rows);
+
+      menu();
+   });
+  }
+
+  function allEmployees () {
+    const sql = `SELECT * FROM employee`;  
     db.query(sql, (err, rows) => {
       if (err) {
         throw err;
