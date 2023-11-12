@@ -131,7 +131,7 @@ function addDepartment () {
         {
           type: "number",
           name: "department",
-          message: "What is the manager ID of this role?",
+          message: "What is the department ID of this role?",
         }
       ])
       .then(function (answers) {
