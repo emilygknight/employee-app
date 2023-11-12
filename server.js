@@ -94,9 +94,11 @@ const choices = [
     console.log(answers.choices);
     if (answers.choices === 'View All Departments') {
 
-      console.log('View All Departments');
-
       allDepartments();
+    } else if (answers.choices === 'View All Roles') {
+
+      allRoles();
+
     } else if (answers.choices === 'Add A Department') {
 
       addDepartment(menu());
@@ -119,6 +121,19 @@ const choices = [
       menu();
    });
   }
+
+  function allRoles () {
+    const sql = `SELECT * FROM role`;  
+    db.query(sql, (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      console.table(rows);
+
+      menu();
+   });
+  }
+
 
 
 function addDepartment () {
