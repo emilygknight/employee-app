@@ -10,65 +10,6 @@ const db = mysql.createConnection(
   console.log(`Connected to the employee_tracker database.`)
 );
 
-// app.post('/api/new-department', ({ body }, res) => {
-//     const sql = `INSERT INTO departments (name)
-//       VALUES (?)`;
-//     const params = [body.name];
-    
-//     db.query(sql, params, (err, result) => {
-//       if (err) {
-//         res.status(400).json({ error: err.message });
-//         return;
-//       }
-//       res.json({
-//         message: 'success',
-//         data: body
-//       });
-//     });
-//   });
-
-// app.get('/api/departments', (req, res) => {
-//     const sql = `SELECT name, department_name AS title FROM departments`;
-    
-//     db.query(sql, (err, rows) => {
-//       if (err) {
-//         res.status(500).json({ error: err.message });
-//          return;
-//       }
-//       res.json({
-//         message: 'success',
-//         data: rows
-//       });
-//     });
-//   });
-  
-
-//   Updating employee role
-  // app.put('/api/employee/:id', (req, res) => {
-  //   const sql = `UPDATE employee SET job_title = ? WHERE id = ?`;
-  //   const params = [req.body.employees, req.params.id];
-  
-  //   db.query(sql, params, (err, result) => {
-  //     if (err) {
-  //       res.status(400).json({ error: err.message });
-  //     } else if (!result.affectedRows) {
-  //       res.json({
-  //         message: 'Employee not found'
-  //       });
-  //     } else {
-  //       res.json({
-  //         message: 'success',
-  //         data: req.body,
-  //         changes: result.affectedRows
-  //       });
-  //     }
-  //   });
-  // });
-// db.query('SELECT * FROM departments', function (err, results) {
-//     // console.log(err)
-//     console.log(results);
-//   });
-
 
 const inquirer = require('inquirer');
 
