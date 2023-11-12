@@ -46,7 +46,11 @@ const choices = [
 
     } else if (answers.choices === 'Add A Department') {
 
-      addDepartment(menu());
+      addDepartment();
+
+    } else if (answers.choices === 'Add A Role') {
+
+      addRole();
 
     } else if (answers.choices === 'Add An Employee') {
      
@@ -111,6 +115,36 @@ function addDepartment () {
   })
   };
 
+  function addRole() {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "title",
+          message: "What is the name of the new role?",
+        },
+        {
+          type: "input",
+          name: "salary",
+          message: "What is the salary of this role?",
+        },
+        {
+          type: "number",
+          name: "department",
+          message: "What is the manager ID of this role?",
+        }
+      ])
+      .then(function (answers) {
+        const sql = `INSERT INTO role (title, salary, department_id) VALUES ('${answers.title}', '${answers.salary}', '${answers.department}')`;
+        db.query(sql, (err, rows) => {
+          if (err) {
+            throw err;
+          }
+          console.log("Your role has been added");
+          menu();
+        });
+      });
+  }
 
   function addEmployee() {
     inquirer
